@@ -1,5 +1,5 @@
 import unittest
-from src.mobility_canonical_validator.constants import Constants
+from src.gtfs_canonical_validator.constants import Constants
 
 
 class TestConstants(unittest.TestCase):

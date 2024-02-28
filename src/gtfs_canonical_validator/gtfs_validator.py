@@ -4,11 +4,11 @@ import requests
 from .constants import Constants
 
 
-class MobilityData:
+class GTFSValidator:
     def __init__(self, logger):
-        self.timeout = 5
-        self.max_retries = 10
-        self.job_id, self.url, self.error = MobilityData.get_info()
+        self.timeout = Constants.timeout
+        self.max_retries = Constants.max_retries
+        self.job_id, self.url, self.error = GTFSValidator.get_info()
         self.logger = logger
 
     @staticmethod

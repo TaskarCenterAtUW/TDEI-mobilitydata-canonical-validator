@@ -1,7 +1,19 @@
 import os
-from mobility_canonical_validator import CanonicalValidator
+from gtfs_canonical_validator import CanonicalValidator
+
+
+def success_case():
+    canonical_validator = CanonicalValidator(zip_file='./src/assets/success.zip')
+    report = canonical_validator.validate()
+    print(report.status)
+
+
+def failure_case():
+    canonical_validator = CanonicalValidator(zip_file='./src/assets/failure.zip')
+    report = canonical_validator.validate()
+    print(report.status)
+
 
 if __name__ == "__main__":
-    canonical_validator = CanonicalValidator(zip_file='./src/assets/valid.zip')
-    report = canonical_validator.validate()
-    # print(report)
+    success_case()
+    failure_case()

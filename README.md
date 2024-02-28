@@ -16,14 +16,14 @@ This package is used to validate the canonical data.
 
 ## Starting a new project with template
 
-- Add `mobility_canonical_validator` package as dependency in your `requirements.txt`
-- or `pip install mobility_canonical_validator`
+- Add `gtfs-canonical-validator` package as dependency in your `requirements.txt`
+- or `pip install gtfs-canonical-validator`
 - Start using the packages in your code.
 
 ## Initialize and Configuration
 
 ```python
-from mobility_canonical_validator import CanonicalValidator
+from gtfs_canonical_validator import CanonicalValidator
 
 canonical_validator = CanonicalValidator(file_path=<CANONICAL_ZIP_FILE_PATH>)
 report = canonical_validator.validate()
@@ -82,10 +82,10 @@ OK
 Name                                                Stmts   Miss  Cover
 -----------------------------------------------------------------------
 src/example.py                                          5      5     0%
-src/mobility_canonical_validator/__init__.py           20      0   100%
-src/mobility_canonical_validator/constants.py           5      0   100%
-src/mobility_canonical_validator/mobility_data.py      44      0   100%
-src/mobility_canonical_validator/version.py             1      0   100%
+src/gtfs_canonical_validator/__init__.py           20      0   100%
+src/gtfs_canonical_validator/constants.py           5      0   100%
+src/gtfs_canonical_validator/gtfs_validator.py      44      0   100%
+src/gtfs_canonical_validator/version.py             1      0   100%
 -----------------------------------------------------------------------
 TOTAL                                                  75      5    93%
 

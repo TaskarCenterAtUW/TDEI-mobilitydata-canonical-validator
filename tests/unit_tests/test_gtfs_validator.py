@@ -1,7 +1,7 @@
 import unittest
 import requests
 from unittest.mock import patch, Mock, mock_open
-from src.mobility_canonical_validator.mobility_data import MobilityData
+from src.gtfs_canonical_validator.gtfs_validator import GTFSValidator
 
 
 class TestMobilityData(unittest.TestCase):
@@ -13,7 +13,7 @@ class TestMobilityData(unittest.TestCase):
         mock_response.raise_for_status.return_value = None
         mock_post.return_value.__enter__.return_value = mock_response
 
-        job_id, url, error = MobilityData.get_info()
+        job_id, url, error = GTFSValidator.get_info()
 
         self.assertEqual(job_id, 'mock_job_id')
         self.assertEqual(url, 'mock_url')
@@ -23,7 +23,7 @@ class TestMobilityData(unittest.TestCase):
     def test_get_info_failure(self, mock_post):
         mock_post.side_effect = requests.exceptions.RequestException("Mock exception")
 
-        job_id, url, error = MobilityData.get_info()
+        job_id, url, error = GTFSValidator.get_info()
 
         self.assertIsNone(job_id)
         self.assertIsNone(url)
@@ -35,7 +35,7 @@ class TestMobilityData(unittest.TestCase):
         mock_response.raise_for_status.return_value = None
         mock_put.return_value.__enter__.return_value = mock_response
 
-        mobility_data = MobilityData(Mock())
+        mobility_data = GTFSValidator(Mock())
         mobility_data.url = 'mock_upload_url'
 
         # Ensure the provided file path exists
@@ -52,7 +52,7 @@ class TestMobilityData(unittest.TestCase):
     def test_upload_failure(self, mock_put):
         mock_put.side_effect = requests.exceptions.RequestException("Mock exception")
 
-        mobility_data = MobilityData(Mock())
+        mobility_data = GTFSValidator(Mock())
         mobility_data.url = 'mock_upload_url'
 
         with patch('builtins.open', mock_open()) as mock_file:
@@ -71,7 +71,7 @@ class TestMobilityData(unittest.TestCase):
         mock_response.raise_for_status.return_value = None
         mock_get.return_value.__enter__.return_value = mock_response
 
-        mobility_data = MobilityData(Mock())
+        mobility_data = GTFSValidator(Mock())
         result = mobility_data.get_mobility_data('mock_url')
 
         self.assertEqual(result, {'mock_data': 'mock_value'})
@@ -80,7 +80,7 @@ class TestMobilityData(unittest.TestCase):
     def test_get_mobility_data_failure(self, mock_get):
         mock_get.side_effect = requests.exceptions.RequestException("Mock exception")
 
-        mobility_data = MobilityData(Mock())
+        mobility_data = GTFSValidator(Mock())
         result = mobility_data.get_mobility_data('mock_url')
 
         self.assertIsNone(result)
