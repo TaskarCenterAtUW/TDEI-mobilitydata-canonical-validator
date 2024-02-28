@@ -4,7 +4,7 @@ from unittest.mock import patch, Mock, mock_open
 from src.gtfs_canonical_validator.gtfs_validator import GTFSValidator
 
 
-class TestMobilityData(unittest.TestCase):
+class TestGTFSValidatorData(unittest.TestCase):
 
     @patch('requests.post')
     def test_get_info_success(self, mock_post):
