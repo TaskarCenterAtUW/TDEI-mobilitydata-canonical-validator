@@ -2,7 +2,7 @@
 
 # VARS
 DT=$(date +%FT%T)
-PROJ_NAME="mobility-canonical-validator"
+PROJ_NAME="gtfs-canonical-validator"
 BUILD_FOLDER="build"
 BUILD_TARGET="$BUILD_FOLDER/$PROJ_NAME/python"
 
