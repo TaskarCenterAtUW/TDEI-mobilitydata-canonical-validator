@@ -25,7 +25,7 @@ This package is used to validate the canonical data.
 ```python
 from gtfs_canonical_validator import CanonicalValidator
 
-canonical_validator = CanonicalValidator(file_path=<CANONICAL_ZIP_FILE_PATH>)
+canonical_validator = CanonicalValidator(zip_file=<CANONICAL_ZIP_FILE_PATH>)
 report = canonical_validator.validate()
 print(report)
 
