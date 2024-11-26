@@ -1,6 +1,6 @@
 class Constants:
-    JOB_URL = 'https://stg-gtfs-validator-web-mbzoxaljzq-ue.a.run.app/create-job'
-    RESULT_BASE_URL = 'https://staging-gtfs-validator-results.mobilitydata.org'
+    JOB_URL = 'https://gtfs-validator-web-mbzoxaljzq-ue.a.run.app/create-job'
+    RESULT_BASE_URL = 'https://gtfs-validator-results.mobilitydata.org'
     timeout = 10 # 10 seconds timeout
     max_retries = 5
 
