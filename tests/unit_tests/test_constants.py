@@ -9,7 +9,7 @@ class TestConstants(unittest.TestCase):
         self.mock_job_id = 'mock_job_id'
 
     def test_get_result_url(self):
-        expected_result = "https://staging-gtfs-validator-results.mobilitydata.org/mock_job_id/report.json"
+        expected_result = "https://gtfs-validator-results.mobilitydata.org/mock_job_id/report.json"
         result_url = self.constants.get_result_url(self.mock_job_id)
         self.assertEqual(result_url, expected_result)
 
