@@ -14,6 +14,9 @@ class CanonicalValidator:
         self.logger.setLevel(logging.INFO)
         self.uploader = GTFSValidator(logger=self.logger)
 
+    def __version__(self):
+        return
+
     def validate(self) -> Response:
         response = Response()
         uploader_status, uploader_error = self.uploader.upload(file_path=self.file)
@@ -37,3 +40,5 @@ class CanonicalValidator:
     @staticmethod
     def parse_errors(notices):
         return [item for item in notices if item.get('severity') == 'ERROR']
+
+CanonicalValidator.__version__ = __version__
