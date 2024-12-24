@@ -2,6 +2,7 @@ import json
 import time
 import requests
 from .constants import Constants
+from .version import __version__
 
 
 class GTFSValidator:
@@ -48,3 +49,6 @@ class GTFSValidator:
                 self.logger.info(f'Retrying Request Count To Get Validation Result: {count + 1}')
                 time.sleep(self.timeout)
                 return self.get_mobility_data(url=url, count=count + 1)
+
+
+GTFSValidator.__version__ = __version__
