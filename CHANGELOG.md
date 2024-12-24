@@ -1,5 +1,9 @@
 # Change log
 
+### 0.0.7
+
+- Added Package version compatibility
+
 ### 0.0.6
 
 - Added unit test cases
