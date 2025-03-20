@@ -1,7 +1,10 @@
 # TDEI-mobility-canonical-validator
 
-This package is used to validate the canonical data.
+This package is used to validate the canonical data. This library is used to validate all the GTFS datasets that are compatible with [Mobility Data](https://gtfs-validator.mobilitydata.org/)
 
+The library pushes the dataset `zip` file to [Mobility Data](https://gtfs-validator.mobilitydata.org/) and fetches the report.
+
+The reference for GTFS is available [here](https://gtfs.org/documentation/schedule/reference/)
 
 ## System requirements
 
@@ -90,3 +93,8 @@ src/gtfs_canonical_validator/version.py             1      0   100%
 TOTAL                                                  75      5    93%
 
 ```
+
+#### Running validation on Local files
+- Use the code in [example.py](./src/example.py) to replace the dataset sources and run the code to get the validation report.
+- An example report can be found at [example-report.json](./src/assets/example-report.json)
+- The report explanation can be found [here](https://gtfs-validator.mobilitydata.org/rules.html)
