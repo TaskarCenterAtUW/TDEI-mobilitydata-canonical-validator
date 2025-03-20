@@ -1,0 +1,106 @@
+{
+    "summary": {
+        "validatorVersion": "7.0.0",
+        "validatedAt": "2025-03-20T07:27:51Z",
+        "gtfsInput": "file:/tmp/gtfs-validator-temp9116599010150505234/a5a07210-faf2-4c48-9445-7aae86af041f13803250644255949111.zip",
+        "threads": 1,
+        "outputDirectory": "/tmp/gtfs-validator-tempa5a07210-faf2-4c48-9445-7aae86af041f2272733557071765757",
+        "systemErrorsReportName": "system_errors.json",
+        "validationReportName": "report.json",
+        "htmlReportName": "report.html",
+        "countryCode": "US",
+        "dateForValidation": "2025-03-20",
+        "feedInfo": {
+            "publisherName": "",
+            "publisherUrl": "",
+            "feedLanguage": "",
+            "feedEmail": "",
+            "feedServiceWindowStart": "",
+            "feedServiceWindowEnd": ""
+        },
+        "agencies": [],
+        "files": [],
+        "validationTimeSeconds": 0.005910544,
+        "memoryUsageRecords": [
+            {
+                "key": "GtfsFeedLoader.loadTables",
+                "totalMemory": 645922816,
+                "freeMemory": 380699528,
+                "maxMemory": 12884901888,
+                "diffMemory": 0
+            },
+            {
+                "key": "GtfsFeedLoader.executeMultiFileValidators",
+                "totalMemory": 645922816,
+                "freeMemory": 380307064,
+                "maxMemory": 12884901888,
+                "diffMemory": -337616
+            },
+            {
+                "key": "org.mobilitydata.gtfsvalidator.table.GtfsFeedLoader.loadAndValidate",
+                "totalMemory": 645922816,
+                "freeMemory": 380251704,
+                "maxMemory": 12884901888,
+                "diffMemory": -503104
+            },
+            {
+                "key": "ValidationRunner.run",
+                "totalMemory": 645922816,
+                "freeMemory": 380196344,
+                "maxMemory": 12884901888,
+                "diffMemory": 278381808
+            }
+        ],
+        "counts": {
+            "Shapes": 0,
+            "Stops": 0,
+            "Routes": 0,
+            "Trips": 0,
+            "Agencies": 0,
+            "Blocks": 0
+        },
+        "gtfsFeatures": []
+    },
+    "notices": [
+        {
+            "code": "missing_calendar_and_calendar_date_files",
+            "severity": "ERROR",
+            "totalNotices": 1,
+            "sampleNotices": [
+                {}
+            ]
+        },
+        {
+            "code": "missing_recommended_file",
+            "severity": "WARNING",
+            "totalNotices": 1,
+            "sampleNotices": [
+                {
+                    "filename": "feed_info.txt"
+                }
+            ]
+        },
+        {
+            "code": "missing_required_file",
+            "severity": "ERROR",
+            "totalNotices": 5,
+            "sampleNotices": [
+                {
+                    "filename": "stop_times.txt"
+                },
+                {
+                    "filename": "agency.txt"
+                },
+                {
+                    "filename": "routes.txt"
+                },
+                {
+                    "filename": "trips.txt"
+                },
+                {
+                    "filename": "stops.txt"
+                }
+            ]
+        }
+    ]
+}

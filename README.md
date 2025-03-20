@@ -1,7 +1,10 @@
 # TDEI-mobility-canonical-validator
 
-This package is used to validate the canonical data.
+This package is used to validate the canonical data. This library is used to validate all the GTFS datasets that are compatible with [Mobility Data](https://gtfs-validator.mobilitydata.org/)
 
+The library pushes the dataset `zip` file to [Mobility Data](https://gtfs-validator.mobilitydata.org/) and fetches the report.
+
+The reference for GTFS is available [here](https://gtfs.org/documentation/schedule/reference/)
 
 ## System requirements
 
@@ -90,3 +93,27 @@ src/gtfs_canonical_validator/version.py             1      0   100%
 TOTAL                                                  75      5    93%
 
 ```
+
+#### Running validation on Local files
+- Use the code in [example.py](./src/example.py) to replace the dataset sources and run the code to get the validation report.
+- An example report can be found at [example-report.json](./src/assets/example-report.json)
+- The report explanation can be found [here](https://gtfs-validator.mobilitydata.org/rules.html)
+
+
+## Deployment:
+
+- The library can be pushed to [TestPy](https://test.pypi.org/project/gtfs-canonical-validator/) or [PYPI](https://pypi.org/project/gtfs-canonical-validator/)
+### Deploy to TestPy
+- On every push to `dev` branch, a workflow is triggered which publishes the updated version to TestPy
+
+### Deploy to PyPI
+- This happens whenever a tag/release is created with `*.*.*` notation (eg. 0.0.8)
+- To change the version, change the version at [version.py](./src/gtfs_canonical_validator/version.py)
+- To release a new version:
+  - Go to Github link of this repository
+  - Under [releases](https://github.com/TaskarCenterAtUW/TDEI-mobilitydata-canonical-validator/releases), click on `Draft a new release`
+  - Under `choose a new tag`, add a new tag `v*.*.*` , Generate Release notes
+  - Choose `main` branch for release
+  - Publish the release.
+- This release triggers a workflow to generate the new version of the Package.
+- The new package will be available at https://pypi.org/project/gtfs-canonical-validator/
