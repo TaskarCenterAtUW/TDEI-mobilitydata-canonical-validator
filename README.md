@@ -48,6 +48,8 @@ folder.
 - To execute the code coverage, please follow the commands:
 
   `python -m coverage run --source=src/gtfs_canonical_validator -m unittest discover -s tests/unit_tests`
+  
+  `python -m unittest test_sample.MyTestCase.test_function`  - To run a single test case
 
   `coverage html` // Can be run after 1st command
 
