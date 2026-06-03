@@ -1,3 +1,4 @@
+import json
 import os
 import unittest
 from unittest.mock import Mock
@@ -34,6 +35,8 @@ class TestCanonicalValidator(unittest.TestCase):
         result = self.validator.validate()
 
         self.assertTrue(result.status)
+        self.assertEqual(json.loads(result.info), mock_report['notices'])
+        self.assertIsNone(result.error)
         self.validator.uploader.upload.assert_called_once_with(file_path=self.mock_zip_file)
         self.validator.uploader.get_mobility_data.assert_called_once()
 
@@ -44,9 +47,26 @@ class TestCanonicalValidator(unittest.TestCase):
 
         result = self.validator.validate()
 
-        self.assertEqual(result.error, mock_error)
+        self.assertEqual(json.loads(result.error), mock_error)
         self.validator.uploader.upload.assert_called_once_with(file_path=self.mock_zip_file)
         self.assertFalse(self.validator.uploader.get_mobility_data.called)
+
+    def test_validate_returns_json_error_for_validation_errors(self):
+        mock_report = {'notices': [{
+            'code': 'missing_required_field',
+            'severity': 'ERROR',
+            'totalNotices': 1,
+            'sampleNotices': [{'filename': 'stops.txt', 'fieldName': 'stop_id'}]
+        }]}
+        self.validator.uploader.upload = Mock(return_value=(True, None))
+        self.validator.uploader.job_id = 'mock_job_id'
+        self.validator.uploader.get_mobility_data = Mock(return_value=mock_report)
+
+        result = self.validator.validate()
+
+        self.assertFalse(result.status)
+        self.assertEqual(json.loads(result.error), mock_report['notices'])
+        self.assertEqual(json.loads(result.info), mock_report['notices'])
 
 
 class TestCanonicalValidatorSuccessWithDatasets(unittest.TestCase):

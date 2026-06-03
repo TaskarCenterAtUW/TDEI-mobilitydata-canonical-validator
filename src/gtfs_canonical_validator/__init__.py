@@ -1,3 +1,4 @@
+import json
 import logging
 from .version import __version__
 from .constants import Constants
@@ -27,13 +28,13 @@ class CanonicalValidator:
             self.logger.info('Got Success Response From Mobility')
             errors = CanonicalValidator.parse_errors(report['notices'])
             if len(errors) > 0:
-                response.error = errors
-                response.info = report['notices']
+                response.error = json.dumps(errors)
+                response.info = json.dumps(report['notices'])
             else:
-                response.info = report['notices']
+                response.info = json.dumps(report['notices'])
                 response.status = True
         else:
-            response.error = uploader_error
+            response.error = json.dumps(uploader_error)
 
         return response
 

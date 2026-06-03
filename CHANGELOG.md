@@ -1,5 +1,10 @@
 # Change log
 
+### 0.0.9
+
+- Return validation notices and errors as valid JSON strings with double-quoted keys and string values.
+- Added README badges for PyPI package version, unit tests, and coverage.
+
 ### 0.0.8
 
 - Added Package version compatibility
@@ -30,4 +35,3 @@
 
 - Initial version of mobility_canonical_validator package.
 - Added logic for canonical validator
-
